@@ -19,7 +19,7 @@ export const Config: IConfig = {
   expressLRSGit: {
     cloneUrl: 'https://github.com/alezh/ExpressLRS',
     url: 'https://github.com/alezh/ExpressLRS',
-    owner: 'ExpressLRS',
+    owner: 'alezh',
     repositoryName: 'ExpressLRS',
     rawRepoUrl: 'https://raw.githubusercontent.com/alezh/ExpressLRS',
     srcFolder: 'src',
