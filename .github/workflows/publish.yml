@@ -1,13 +1,16 @@
 name: Publish
 
-on: workflow_dispatch
+on:
+  push:
+    tags:
+      - '*.*.*'
 
 jobs:
   publish:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ 'ubuntu-18.04', 'windows-2019', 'macos-latest' ]
+        os: ['ubuntu-18.04', 'windows-2019', 'macos-latest']
     steps:
       - name: Setup apt dependencies
         if: matrix.os == 'ubuntu-18.04'
@@ -81,3 +84,11 @@ jobs:
         run: |
           yarn build
           yarn electron-builder --publish always --x64 --linux
+
+      - name: Upload file
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ matrix.os }}
+          path: |
+            packs/*dmg
+            packs/*exe
