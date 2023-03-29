@@ -23,6 +23,7 @@ If you don't have the time to contribute in that way, consider making a small do
 [![Open Collective backers](https://img.shields.io/opencollective/backers/expresslrs?label=Open%20Collective%20backers)](https://opencollective.com/expresslrs)
 
 ## Quick Start Guide
+
 If you have hardware that you want to flash, please refer to our guides on the [website](https://www.expresslrs.org/), and our [FAQ](https://www.expresslrs.org/3.0/faq/)
 
 ## Installation
@@ -146,11 +147,12 @@ Prerequisites
 Start the app in the dev environment:
 
 ```bash
+export NODE_OPTIONS=--openssl-legacy-provider
 yarn install --frozen-lockfile
 yarn start
 ```
 
-In order to simulate WI-FI devices on your local network you can start application with 
+In order to simulate WI-FI devices on your local network you can start application with
 `MULTICAST_DNS_SIMULATOR_ENABLED` environment variable:
 
 ```

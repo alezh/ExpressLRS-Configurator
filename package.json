@@ -148,13 +148,13 @@
     ],
     "publish": {
       "provider": "github",
-      "owner": "ExpressLRS",
+      "owner": "alezh",
       "repo": "ExpressLRS-Configurator"
     }
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ExpressLRS/ExpressLRS-Configurator"
+    "url": "git+https://github.com/alezh/ExpressLRS-Configurator"
   },
   "license": "GPL-3.0-or-later",
   "bugs": {
@@ -340,7 +340,7 @@
     "type-graphql": "1.2.0-rc.1",
     "typedi": "^0.10.0",
     "winston": "^3.8.2",
-    "ws": "^8.9.0"
+    "ws": "^8.12.1"
   },
   "devEngines": {
     "node": ">=16.x",
