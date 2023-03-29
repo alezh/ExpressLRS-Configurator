@@ -83,9 +83,19 @@ jobs:
           yarn electron-builder --publish always --x64 --linux
 
       - name: Upload file
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: ${{ matrix.os }}
           path: |
-            packs/*dmg
-            packs/*exe
+            release/*.exe
+            release/*.dmg
+
+      - name: release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: |
+            release/*.exe
+            release/*.dmg
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
