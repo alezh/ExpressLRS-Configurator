@@ -89,6 +89,10 @@ jobs:
           path: |
             release/*.exe
             release/*.dmg
+            release/*.deb
+            release/*.zip
+            release/*.rpm
+            release/*.blockmap
 
       - name: release
         uses: softprops/action-gh-release@v1
@@ -97,5 +101,9 @@ jobs:
           files: |
             release/*.exe
             release/*.dmg
+            release/*.deb
+            release/*.zip
+            release/*.rpm
+            release/*.blockmap
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

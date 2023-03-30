@@ -1,7 +1,7 @@
 [
   {
     "category": "Alz 2.4 GHz",
-    "name": "Alz 2400 TX Micro 1000mW",
+    "name": "Alz 2400 TX 1000mW",
     "targets": [
       {
         "flashingMethod": "UART",
@@ -32,15 +32,15 @@
   },
   {
     "category": "Alz 2.4 GHz",
-    "name": "Alz 2.4GHz RX",
+    "name": "Alz 2.4GHz MAX RX",
     "targets": [
       {
         "flashingMethod": "UART",
-        "name": "Alz_2400_RX_via_UART"
+        "name": "Alz_2400_RX_MAX_via_UART"
       },
       {
         "flashingMethod": "WIFI",
-        "name": "Alz_2400_RX_via_WIFI"
+        "name": "Alz_2400_RX_MAX_via_WIFI"
       },
       {
         "flashingMethod": "BetaflightPassthrough",
@@ -102,27 +102,43 @@
     ],
     "wikiUrl": "https://www.expresslrs.org/quick-start/receivers/betafpv2400/",
     "deviceType": "ExpressLRS",
-    "aliases": [
+    "aliases": []
+  },
+  {
+    "category": "Alz 2.4 GHz",
+    "name": "Alz 2400 RX MAX RGB",
+    "targets": [
       {
-        "category": "HiYOUNGER 2.4 GHz",
-        "name": "HiYOUNGER RX24T 2400 RX",
-        "wikiUrl": "",
-        "abbreviatedName": "HiYOUNGER RX24T",
-        "verifiedHardware": false
+        "flashingMethod": "UART",
+        "name": "Alz_2400_RX_via_UART"
       },
       {
-        "category": "JHEMCU 2.4 GHz",
-        "name": "JHEMCU RX24T 2400 RX",
-        "wikiUrl": "",
-        "abbreviatedName": "JHEMCU RX24T",
-        "verifiedHardware": false
+        "flashingMethod": "WIFI",
+        "name": "Alz_2400_RX_via_WIFI"
       },
       {
-        "category": "EMAX 2.4 GHz",
-        "name": "EMAX 2.4GHz PA RX",
-        "wikiUrl": "https://www.expresslrs.org/quick-start/receivers/diy2400/",
-        "abbreviatedName": "EMAX 2400RX"
+        "flashingMethod": "BetaflightPassthrough",
+        "name": "Alz_2400_RX_via_BetaflightPassthrough"
       }
-    ]
+    ],
+    "userDefines": [
+      "REGULATORY_DOMAIN_ISM_2400",
+      "REGULATORY_DOMAIN_EU_CE_2400",
+      "BINDING_PHRASE",
+      "HYBRID_SWITCHES_8",
+      "ENABLE_TELEMETRY",
+      "LOCK_ON_FIRST_CONNECTION",
+      "USE_500HZ",
+      "USE_DIVERSITY",
+      "AUTO_WIFI_ON_BOOT",
+      "AUTO_WIFI_ON_INTERVAL",
+      "HOME_WIFI_SSID",
+      "HOME_WIFI_PASSWORD",
+      "RCVR_UART_BAUD",
+      "RCVR_INVERT_TX"
+    ],
+    "wikiUrl": "https://www.expresslrs.org/quick-start/receivers/betafpv2400/",
+    "deviceType": "ExpressLRS",
+    "aliases": []
   }
 ]

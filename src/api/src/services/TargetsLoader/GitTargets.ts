@@ -47,7 +47,8 @@ export default class GitTargetsService extends TargetsLoader {
       this.logger?.log('git path', {
         gitPath,
       });
-
+      console.log(this.targetStoragePath);
+      console.log(gitPath);
       const firmwareDownload = new GitFirmwareDownloader(
         {
           baseDirectory: this.targetStoragePath,
