@@ -94,7 +94,7 @@ jobs:
             release/*.rpm
             release/*.blockmap
 
-      - name: release
+      - name: Create Release and Upload Release Asset
         uses: softprops/action-gh-release@v1
         with:
           tag_name: 1.5.5
