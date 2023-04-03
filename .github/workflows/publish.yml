@@ -2,8 +2,11 @@ name: Publish
 
 on:
   push:
-    tags:
-      - '*'
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
   workflow_dispatch:
 
 permissions:
@@ -101,20 +104,19 @@ jobs:
             release/*.rpm
             release/*.blockmap
 
-      - name: Create Release and Upload Release Asset
-        if: startsWith(github.ref, 'refs/tags/')
-        uses: softprops/action-gh-release@v1
-        with:
-          tag_name: ${{ github.ref }}
-          name: ExpressLRS-Configurator ${{ github.ref }}
-          draft: false
-          prerelease: false
-          files: |
-            release/*.exe
-            release/*.dmg
-            release/*.deb
-            release/*.zip
-            release/*.rpm
-            release/*.blockmap
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#      - name: Create Release and Upload Release Asset
+#        uses: softprops/action-gh-release@v1
+#        with:
+#          tag_name: 1.5.5
+#          name: ExpressLRS-Configurator 1.5.5
+#          draft: false
+#          prerelease: false
+#          files: |
+#            release/*.exe
+#            release/*.dmg
+#            release/*.deb
+#            release/*.zip
+#            release/*.rpm
+#            release/*.blockmap
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
