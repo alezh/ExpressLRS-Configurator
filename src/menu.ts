@@ -268,7 +268,7 @@ export default class MenuBuilder {
             label: 'Learn More',
             click() {
               shell.openExternal(
-                'https://github.com/expresslrs/expresslrs-configurator'
+                'https://github.com/alezh/expresslrs-configurator'
               );
             },
           },

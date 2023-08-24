@@ -187,6 +187,7 @@ Prerequisites
 Start the app in the dev environment:
 
 ```bash
+export NODE_OPTIONS=--openssl-legacy-provider
 yarn install --frozen-lockfile
 yarn start
 ```

@@ -12,16 +12,16 @@ interface IConfig {
 
 export const Config: IConfig = {
   documentationUrl: 'https://www.expresslrs.org/',
-  githubRepositoryUrl: 'https://github.com/ExpressLRS/ExpressLRS',
+  githubRepositoryUrl: 'https://github.com/alezh/ExpressLRS',
   facebookGroupUrl: 'https://www.facebook.com/groups/636441730280366',
   discordUrl: 'https://discord.gg/dS6ReFY',
   openCollectiveUrl: 'https://opencollective.com/expresslrs',
   expressLRSGit: {
-    cloneUrl: 'https://github.com/ExpressLRS/ExpressLRS',
-    url: 'https://github.com/ExpressLRS/ExpressLRS',
-    owner: 'ExpressLRS',
+    cloneUrl: 'https://github.com/alezh/ExpressLRS',
+    url: 'https://github.com/alezh/ExpressLRS',
+    owner: 'alezh',
     repositoryName: 'ExpressLRS',
-    rawRepoUrl: 'https://raw.githubusercontent.com/ExpressLRS/ExpressLRS',
+    rawRepoUrl: 'https://raw.githubusercontent.com/alezh/ExpressLRS',
     srcFolder: 'src',
     tagExcludes: ['<2.5.0'],
   },
