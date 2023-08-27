@@ -3,10 +3,10 @@ name: Publish
 on:
   push:
     branches:
-      - master
+      - sx162x
   pull_request:
     branches:
-      - master
+      - sx162x
   workflow_dispatch:
 
 permissions:
