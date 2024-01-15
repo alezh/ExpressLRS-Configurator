@@ -39,8 +39,8 @@ const winstonLogger = winston.createLogger({
   transports: [
     new winston.transports.Console({
       format: winston.format.combine(
-        winston.format.prettyPrint(),
-        winston.format.timestamp()
+        winston.format.timestamp(),
+        winston.format.prettyPrint()
       ),
     }),
     new winston.transports.File({
@@ -49,8 +49,9 @@ const winstonLogger = winston.createLogger({
       maxFiles: 10,
       maxsize: 5_000_000, // in bytes
       format: winston.format.combine(
+        winston.format.timestamp(),
         winston.format.prettyPrint(),
-        winston.format.timestamp()
+        winston.format.json()
       ),
     }),
   ],
@@ -63,6 +64,13 @@ logger.log('path', {
 
 const isWindows = process.platform.startsWith('win');
 const isMacOS = process.platform.startsWith('darwin');
+logger.log(`platform: ${process.platform}`);
+logger.log(`os release: ${process.getSystemVersion()}`);
+
+const isOSSupported = !(
+  isWindows && parseFloat(process.getSystemVersion()) < 6.2
+);
+
 let userDataDirectory = app.getPath('userData');
 
 if (isWindows) {
@@ -426,19 +434,47 @@ app.on('window-all-closed', () => {
   }
 });
 
-app
-  .whenReady()
-  .then(createWindow)
-  .catch((err: Error) => {
-    logger.error(`createWindow error ${err}`);
-    handleFatalError(err);
-  })
-  .then(() => {
-    return updater?.checkForUpdates();
-  })
-  .catch((err: Error) => {
-    logger.error(`Auto update error ${err}`);
-  });
+if (!isOSSupported) {
+  app
+    .whenReady()
+    .then(() => {
+      // eslint-disable-next-line promise/no-nesting
+      dialog
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        .showMessageBox(undefined, {
+          type: 'error',
+          buttons: ['Okay'],
+          title: 'ExpressLRS Configurator',
+          detail: 'Unsupported OS Version Detected',
+          message: ``,
+        })
+        .then(() => {
+          process.exit(1);
+        })
+        .catch((dialogErr) => {
+          logger.error('failed to show error dialog', dialogErr.stack);
+          process.exit(1);
+        });
+    })
+    .catch((err: Error) => {
+      logger.error(`Unsupported OS dialog error ${err}`);
+    });
+} else {
+  app
+    .whenReady()
+    .then(createWindow)
+    .catch((err: Error) => {
+      logger.error(`createWindow error ${err}`);
+      handleFatalError(err);
+    })
+    .then(() => {
+      return updater?.checkForUpdates();
+    })
+    .catch((err: Error) => {
+      logger.error(`Auto update error ${err}`);
+    });
+}
 
 app.on('activate', () => {
   // On macOS, it's common to re-create a window in the app when the
